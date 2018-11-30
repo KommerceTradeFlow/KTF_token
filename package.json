@@ -1,0 +1,26 @@
+{
+  "name": "kommerce_trade_token",
+  "version": "0.8.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "solium -d contracts",
+    "lint-fix": "solium -d contracts --fix",
+    "test": "solium -d contracts && truffle test",
+    "coverage": "solidity-coverage",
+    "migrate": "truffle migrate"
+  },
+  "author": "Suen Chun Hui",
+  "license": "ISC",
+  "dependencies": {
+    "truffle": "4.1.11"
+  },
+  "devDependencies": {
+    "solidity-coverage": "^0.5.11",
+    "web3-utils": "^1.0.0-beta.36",
+    "solium": "1.1.8"
+  }
+}
