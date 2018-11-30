@@ -5,11 +5,11 @@ Main new feature is a `approve_meta()` function, meant to allow gas-lass account
 ```
 approve_meta(address _spender, uint256 _value, address _signer, bytes sig)
 ```
-Where `_spender` is the receipent able to call `transferFrom()` of maximum amount `_value` from the `_signer` balance.
+Where `_spender` is the receipent who is able to call `transferFrom()` up to a maximum amount of `_value` from the `_signer` balance.
 ```
-getNonce(address _spender) public view returns (uint) {
+getNonce(address _spender)
 ```
-The `getNonce` method is a public query to get the current nonce of an account.
+The `getNonce` method is a public query to get the current nonce of an account, which will be incremented with each `approve_meta()` call.
 
 A signature signed by `_signer` is generated using:
 ```
@@ -17,4 +17,5 @@ sig = evm_sign(ERC20_token_address | spender_address | value | signer_address | 
 ```
 Where `evm_sign` is the ethereum specific ecdsa operation which includes the `\x19Ethereum Signed Message:\n32` prefix.
 
-Code from `openzeppelin-solidity` is copied rather than by importing a dependancy so as to modify the `ERC20` contract state `_allowed`  visibility from `private` to `internal`, so that it can be modified by the `approve_meta()` method.
+# Note
+Code from `openzeppelin-solidity` is copied rather than imported as a dependancy, so as to modify the `ERC20` contract state `_allowed`  visibility from `private` to `internal`, so that it can be modified by the `approve_meta()` method.
