@@ -19,3 +19,6 @@ Where `evm_sign` is the ethereum specific ecdsa operation which includes the `\x
 
 # Note
 Code from `openzeppelin-solidity` is copied rather than imported as a dependancy, so as to modify the `ERC20` contract state `_allowed`  visibility from `private` to `internal`, so that it can be modified by the `approve_meta()` method.
+
+# Credits
+Credits to the great work from [openzeppelin-solidity](https://github.com/OpenZeppelin/openzeppelin-solidity) and austintgriffith for [bouncer-proxy](https://github.com/austintgriffith/bouncer-proxy) where the signing code is adapted from.
